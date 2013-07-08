@@ -15,6 +15,38 @@ public class Main {
 		public int cycles = 10;
 		public int[][] arr1;
 		public Integer[][] arr2;
+		
+		public String toString(){
+			StringBuffer strb = new StringBuffer();
+			strb.append("\nnumbers = ");
+			strb.append(numbers);
+			strb.append("\ncycles = ");
+			strb.append(cycles);
+			
+			if(arr1!=null){
+				strb.append("\nArray 1: \n");
+				for(int[] row : arr1){
+					strb.append('\n');
+					for(int i : row){
+						strb.append(i);
+						strb.append(", ");
+					}
+				}
+			}
+			
+			if(arr2!=null){
+				strb.append("\nArray 2: \n");
+				for(Integer[] row : arr2){
+					strb.append('\n');
+					for(Integer i : row){
+						strb.append(i);
+						strb.append(", ");
+					}
+				}
+			}
+			return strb.toString();
+			
+		}
 	}
 	
 	/** Generates arrays for sorting and store it in provided holder.
@@ -40,7 +72,8 @@ public class Main {
 	 * Generates data of default or specified length and runs quicksort
 	 * and mergesort on them.
 	 * @param args command line arguments can specify number of generated 
-	 * 		integers and sorting cycles
+	 * 		integers and sorting cycles. If there are more than 2 arguments
+	 * 		then information about sorting will be printed.
 	 */
 	public static void main(String[] args) {
 		try{
@@ -51,10 +84,15 @@ public class Main {
 			if(args.length >= 2){
 				holder.numbers = Integer.parseInt(args[1]);
 			}
+			if(args.length > 2){
+				System.out.printf("Sorting %d integers in %d cycles.\n", holder.numbers, holder.cycles);
+			}
 			
 			generate(holder);
 			QuickSort.sort(holder.arr1);
 			MergeSort.sort(holder.arr2);
+			
+			//System.out.println(holder.toString());
 			
 		} catch(NumberFormatException ex){
 			System.out.println("Usage:\n\t " +
