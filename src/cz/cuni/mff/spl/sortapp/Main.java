@@ -2,6 +2,12 @@ package cz.cuni.mff.spl.sortapp;
 
 import java.util.Random;
 
+/**
+ * Class with main method to run sorting.
+ * 
+ * @author Jaroslav Kotrc
+ *
+ */
 public class Main {
 	
 	/**
