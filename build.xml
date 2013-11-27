@@ -89,5 +89,15 @@
       access="public" splitindex="true" use="true">
 			<packageset dir="${src.dir}"/>
 		</javadoc>
+	</target>
+	
+	<target name="run" depends="compile-all">
+		<java classpathref="classpath" classname="cz.cuni.mff.spl.sortapp.Main" fork="true">
+			<arg value="1000"/>
+			<arg value="1000"/>
+			<arg value="4"/>
+			<arg value="3"/>
+			<arg value="y"/>
+		</java>
 	</target>	
 </project>
